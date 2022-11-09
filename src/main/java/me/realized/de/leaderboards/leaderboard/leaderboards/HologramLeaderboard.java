@@ -137,7 +137,11 @@ public class HologramLeaderboard extends AbstractLeaderboard {
 
     private void showLines(final TopEntry entry, final Location location, final List<PrefixedTopData> data) {
         final double space = 0.23 + spaceBetweenLines;
-        showLine(0, location, StringUtil.color(hologramHeader.replace("%type%", entry.getType())));
+        showLine(0, location, StringUtil.color(hologramHeader.replace("%type%", entry.getType()))
+                .replace("Losses", "Przegranych")
+                .replace("Own Inventory", "Rankingu")
+                .replace("Wins", "Wygranych")
+        );
 
         for (int i = 0; i < data.size(); i++) {
             final PrefixedTopData topData = data.get(i);
